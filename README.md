@@ -7,6 +7,6 @@
 
 # manage content
 
-- http://<ServerName>/admin - displays admin login form
+- http:/<ServerName>/admin - displays admin login form
   - default username: admin
   - default password: admin
