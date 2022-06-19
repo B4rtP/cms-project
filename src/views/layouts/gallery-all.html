@@ -1,0 +1,21 @@
+<div class="container text-center mt-5">
+    <h1><?=$page->main_title?></h1>
+    <p><?=$page->main_content?></p>
+</div>
+<!-- Gallery -->
+
+<div class="container mt-5">
+    <div class="row">
+    </div>
+    <div class="portfolio-item row">
+        <?php foreach($images as $image): if($image->status): ?>
+        <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+            <a href="/gallery/image/<?=$image->id?>">
+                <img class="img-fluid rounded shadow" src="/assets/images/gallery/thumbnails/<?=$image->file_name?>"/>
+            </a>
+            <h5 class="text-center mt-2"><?=$image->image_title?></h5>
+            <hr>
+        </div>
+        <?php endif; endforeach; ?>
+    </div>
+</div>

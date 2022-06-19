@@ -1,0 +1,57 @@
+<div class="text-center mt-5 container">
+    <h2>Gallery settings</h2>
+    <hr>
+</div>
+
+<div class="text-center mt-3 container">
+    <form action="/admin/?section=gallery&action=upload" method="post" enctype="multipart/form-data">
+        <h4>Add image:</h4>
+        <h6 class="bi-info-circle my-3"> Recommended image side ratio is 2:3</h6>
+        <input class="btn btn-dark w-25" title=" " type="file" name="image" value="Add new image">
+        <label class="ml-3 font-weight-bold">Title:</label>
+        <input class="mt-1" type="text" name="image_title" placeholder="Set image title">
+        <button class="ml-3 btn btn-primary bi-image-fill" type="submit" name="upload" value="1"> Upload image</button>
+        <div class="text-danger"><?= $errors['image'] ?? '' ?></div>
+        <div class="text-danger"><?= $errors['image-extension'] ?? '' ?></div>
+        <hr>
+    </form>
+</div>
+
+<!-- Carousel wrapper -->
+<div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
+    <!-- Inner -->
+    <div class="carousel-inner py-4">
+        <!-- Single item -->
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row">
+
+                    <?php foreach ($images ?? [] as $image): ?>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <img src="/assets/images/gallery/thumbnails/<?=$image->file_name?>" class="card-img-top"
+                                alt="Waterfall" />
+                            <div class="card-body">
+                                <form action="/admin/?section=gallery&action=title&id=<?=$image->id?>" method="post">
+                                    <input class="text-center" type="text" name="new-title" value="<?= $image->image_title ?>"><br>
+                                    <button class="btn btn-primary mt-2 bi-check-circle" type="submit" name="set-new-title" value="1"> Set new title</button>
+                                </form>
+                                <div class="my-2"></div>
+                                <?php if($image->status): ?>
+                                <a class="btn btn-warning bi-pause-fill" href="/admin/?section=gallery&action=status&deactivate=1&id=<?=$image->id?>">Deactivate</a>
+                                <?php else: ?>
+                                <a class="btn btn-success bi-play-fill" href="/admin/?section=gallery&action=status&activate=1&id=<?=$image->id?>">Activate</a>
+                                <?php endif ?>  
+                                <a class="btn btn-danger bi-trash" href="/admin/?section=gallery&action=delete&id=<?=$image->id?>"">delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach ?>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Single item -->
+    </div>
+    <!-- Inner -->
+</div>

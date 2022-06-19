@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center container my-5 py-5 w-50">
+    <div class="card p-3 bg-white p-5 shadow"><i class="fa fa-apple"></i>
+        <div class="about-product text-center m-5">
+            <img class="img-fluid" src="/assets/images/shop/<?=$product->image_name?>" >
+            <div class="mt-4">
+                <h4><?= $product->name ?></h4>
+                <h6 class="mt-0 text-black-50"><?= $product->description ?></h6>
+            </div>
+        </div>
+        <div class="mx-5 d-flex justify-content-between total font-weight-bold mt-5">
+            <span>Price</span><span>$<?= $product->price ?></span>
+        </div>
+        <div class="row">
+            <a href="/shop" class="btn btn-dark mt-5 mx-5">Back to the shop</a>
+            <div class="ml-auto mx-5">
+                <form method="post" action="">
+                    <input type="hidden" name="product" value="<?= $product->id ?>">
+                    <button type="submit" name="add-to-cart" value="1" class="mt-5 btn btn-primary bi-cart-check"> Add to cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

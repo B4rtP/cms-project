@@ -1,0 +1,89 @@
+<style>
+    .anchor {
+        text-decoration: none;
+        color: rgb(70, 127, 208);
+    }
+    .anchor:hover {
+        transition: 0.75s;
+        color: rgb(112, 209, 239);
+        text-decoration: none;
+    }
+</style>
+
+<div class="container my-5">
+    <div class="text-center my-5">
+        <h4>Please fill in this form or <a class="anchor" href="/shop/login">Login</a>
+         to complete the order.</h4>
+         <h5>Not registered yet? <a class="anchor" href="/shop/register">Register</a></h5>
+    </div>
+    <div class="col-md-8 container order-md-1 shadow py-3 px-4">
+        <h6 class="mb-3">Billing address</h6>
+        <form class="needs-validation" method="post" action="">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="firstName">First name</label>
+                    <input value="<?=$_POST['fname'] ?? $_SESSION['guest-customer']['fname'] ?? '' ?>" name="fname" type="text" class="form-control" id="firstName" placeholder="John">
+                    <div class="text-danger">
+                        <?= $errors['fname'] ?? '' ?>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="lastName">Last name</label>
+                    <input value="<?=$_POST['lname'] ?? $_SESSION['guest-customer']['lname'] ?? '' ?>" name="lname" type="text" class="form-control" id="lastName" placeholder="English">
+                    <div class="text-danger">
+                        <?= $errors['lname'] ?? '' ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input value="<?=$_POST['email'] ?? $_SESSION['guest-customer']['email'] ?? '' ?>" name="email" type="email" class="form-control" id="email" placeholder="you@example.com">
+                <div class="text-danger">
+                    <?= $errors['email'] ?? '' ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="address">Phone number</label>
+                <input value="<?=$_POST['phone'] ?? $_SESSION['guest-customer']['phone'] ?? '' ?>" name="phone" type="text" class="form-control" id="address" placeholder="+420111222333">
+                <div class="text-danger">
+                    <?= $errors['phone'] ?? '' ?>
+                </div>
+            </div>
+
+        <div class="row">
+            <div class="col mb-3">
+                <label for="country">Address</label>
+                <input value="<?=$_POST['address'] ?? $_SESSION['guest-customer']['address'] ?? '' ?>" name="address" type="text" class="form-control d-block w-100" id="country" placeholder="Address 123/4">
+                </input>
+                <div class="text-danger">
+                    <?= $errors['address'] ?? '' ?>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="state">Postal code</label>
+                <input value="<?=$_POST['pcode'] ?? $_SESSION['guest-customer']['pcode'] ?? '' ?>" name="pcode" type="text" class="form-control d-block w-100" id="state" placeholder="123 45">
+                </input>
+                <div class="text-danger">
+                    <?= $errors['pcode'] ?? '' ?>
+                </div>
+            </div>
+        </div>
+
+            <div class="mb-5">
+                <label for="country">Country</label>
+                <input value="<?=$_POST['country'] ?? $_SESSION['guest-customer']['country'] ?? '' ?>" name="country" type="text" class="form-control d-block w-100" id="country" placeholder="Czech Republic">
+            </input>
+                <div class="text-danger">
+                    <?= $errors['country'] ?? '' ?>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            <a href="/shop/shopping_cart" class="btn btn-dark"> Back to the cart</a>
+            <button name="submit-shipping-info" value="1" class="btn btn-primary float-right" type="submit">Continue to shipping</button>
+        </form>
+    </div>
+</div>
+<div style="height: 100px;"></div>

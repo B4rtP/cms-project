@@ -1,0 +1,70 @@
+<style>
+    .i {
+        width: 350px;
+    }
+
+    .y {
+        width: 100px;
+    }
+
+    textarea {
+        width: 500px;
+    }
+</style>
+
+
+
+<form method="post" action="" enctype="multipart/form-data">
+    <div class="text-center mt-4">
+
+        <h3>Add new product</h3>
+
+        <div class="justify-content-center row mt-5 font-weight-bold">
+            <div class="mx-3">
+                <label class="font-weight-bold">Product name</label>
+                <br>
+                <input class="i text-center" type="text" name="name" placeholder="Enter product name" value="<?= $_POST['name'] ?? ''?>">
+                <div class="text-danger">
+                    <?=$errors['name'] ?? '' ?>
+                </div>
+            </div>
+            <div class="mx-3">
+                <label>Product type</label>
+                <br>
+                <input class="i text-center" type="text" name="type" placeholder="Enter product type" value="<?= $_POST['type'] ?? ''?>">
+            </div>
+        </div>
+        <div class="mt-5 font-weight-bold">
+            <label>Description</label>
+            <br>
+            <textarea name="description" rows="10" placeholder="Enter product description"><?= $_POST['description'] ?? ''?></textarea>
+        </div>
+        <div class="font-weight-bold mt-4">
+            <label>Product weight</label>
+            <br>
+            kg <input type="text" name="weight" class="y mr-2" value="<?= $_POST['price'] ?? ''?>" placeholder="10">
+            <div class="text-danger">
+                <?= $errors['weight'] ?? '' ?>
+            </div>
+        </div>
+        <div class="font-weight-bold mt-4">
+            <label>Product price (USD)</label>
+            <br>
+            $ <input type="text" name="price" class="y" value="<?= $_POST['price'] ?? ''?>" placeholder="123">
+            <div class="text-danger">
+                <?= $errors['price'] ?? '' ?>
+            </div>
+        </div>
+        <div class="font-weight-bold my-5">
+            <label>Product image</label>
+            <br>
+            <input class="btn btn-dark" type="file" name="product-img">
+            <div class="text-danger">
+                <?= $errors['image'] ?? '' ?>
+                <?=$errors['extension'] ?? false ? $errors['extension'] : '' ?>
+            </div>
+            <br>
+            <button class=" my-3 btn btn-primary" type="submit" name="add-product" value="1">Add product</button>
+        </div>
+    </div>
+</form>

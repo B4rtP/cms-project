@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 col-lg-12">
+            <div class="panel panel-primary">
+
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <div class="list-group-item font-weight-bold">
+                            <label class="col-1">ID</label>
+                            <label class="col-2">product name</label>
+                            <label class="col-2">product type</label>
+                            <label class="col-2">product price</label>
+                            <label class="ml-3 col-2">product image</label>
+                            
+                        </div>
+
+                        <?php foreach($products as $product): ?>
+                        <li class="list-group-item">
+                            <label class="col-1">
+                                <?= $product->id ?>
+                            </label>
+
+                            <label class="col-2">
+                                <?= $product->name ?>
+                            </label>
+                            <label class="col-2">
+                                <?= $product->type ?>
+                            </label>
+                            <label class="col-2">
+                                $ <?= $product->price ?>
+                            </label>
+                            <label class="col-2">
+                                <img class="img-fluid" src="/assets/images/shop/thumbnails/<?=$product->image_name?>" alt="">
+                            </label>
+        
+                            <div class="float-right mt-2">
+                                <a href="/admin/?section=shop&action=edit&id=<?= $product->id ?>"
+                                class="bi-pencil btn btn-primary"> Edit</a>
+                                <a href="/admin/?section=shop&action=delete&id=<?= $product->id ?>"
+                                class="ml-2 bi-trash btn btn-danger"> Delete</a>
+                            </div>
+                        </li>
+                        <?php endforeach ?>
+                        <div>
+                            <a class="mb-5 bi-plus-square mt-3 btn btn-dark" href="/admin/?section=shop&action=add"> Add new product</a>
+                        </div>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+
+<style>
+    .img-max {
+        max-width: 150px;
+    }
+    input[type='radio'] {
+        width: 18px;
+        height: 18px;
+    }
+</style>
+<header class="bg-dark py-1 shadow">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder mb-3">
+                Shipping provider & payment method
+            </h1>
+            <p class="lead fw-normal text-white-50 mb-0">
+                Please choose the shipping company and payment method
+            </p>
+        </div>
+    </div>
+</header>
+<form method="post" action="">
+<!-- shipping providers -->
+<div class="text-center mt-5">
+    <b>Shipping provider</b>
+</div>
+<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <?php foreach($providers as $provider): ?>
+        <div class="col-2 mt-2 mb-5">
+            <div class="card h-100 p-4 shadow">
+                <div class="text-center ml-4 mb-4">
+                    <input class="rad form-check-input" type="radio" name="provider" id="<?= $provider->id ?>" value="<?= $provider->id ?>" required
+                        <?php if($_SESSION['shipping-provider'] ?? false): echo $_SESSION['shipping-provider']==$provider->id ? 'checked' :
+                    ''; endif?>
+                    >
+                </div>
+                <!-- Product details-->
+                <div class="card-body d-flex flex-column">
+                    <div class="text-center mt-auto">
+                        <label for="<?= $provider->id ?>">
+                        <div class="mb-3">
+                            <!-- Product image-->
+                            <img class="img card-img-top img-max" src="/assets/logos/<?=$provider->logo_name?>" alt="..." />
+                        </div>
+                        <!-- Product name-->
+                        <h5 class="fw-bolder text-uppercase">
+                            <?= $provider->provider_name ?>
+                        </h5>
+                        <label>Shipping price: 
+                        $ <?= round($provider->price_per_kilo * $totalWeight, 2) ?></label>
+                        
+                    </label>
+                    </div>
+                </div>
+                <!-- Product actions-->
+                <div class="card-footer p-2 pt-0 border-top-0 bg-transparent">
+                </div>
+            </div>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<!-- shipping providers - end -->
+<!-- payment method -->
+<div class="text-center mb-2">
+    <b>Payment method</b>
+</div>
+<div class="mb-5 container-fluid">
+    <div class="container shadow px-0" style="width: 450px;">
+        <ul class="px-0">
+            <li class="list-group-item mx-auto">
+                <div class="float-right">
+                    <img width="63" height="45" class="" src="/assets/logos/mastercard-logo.png" alt="">
+                </div>
+                <div class="col-4">Credit card:</div> <b class="col-3">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="payment" id="cc1" required value="mastercard" <?php echo
+                            $payMethod=='mastercard' ? 'checked' : '' ?>>
+                        <label class="form-check-label" for="cc1">Mastercard</label>
+                    </div>
+                </b>
+            </li>
+            <li class="list-group-item mx-auto">
+                <div class="float-right">
+                    <img width="60" height="60" class="" src="/assets/logos/visa-logo.png" alt="">
+                </div>
+                <div class="col-4">Credit card:</div> <b class="col-3">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="payment" id="cc2" value="visa" <?php echo $payMethod=='visa'
+                            ? 'checked' : '' ?>
+                        >
+                        <label class="form-check-label" for="cc2">Visa</label>
+                    </div>
+                </b>
+            </li>
+            <li class="list-group-item mx-auto">
+                <div class="float-right mt-1">
+                    <img width="70" height="40" class="" src="/assets/logos/cash-on-delivery.png" alt="">
+                </div>
+                <div class="col-4">In person:</div> <b class="col-3">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="payment" id="inlineRadio3" value="pay-on-delivery" <?php echo
+                            $payMethod=='pay-on-delivery' ? 'checked' : '' ?>>
+                        <label class="form-check-label" for="inlineRadio3">Pay on delivery</label>
+                    </div>
+                </b>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<div class="text-center my-5">
+    <button name="submit-ship-method" value="1" class="btn btn-primary" type="submit">Continue</button>
+</div>
+
+</form>

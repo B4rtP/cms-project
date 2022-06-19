@@ -1,0 +1,117 @@
+<div class="h-100 d-flex align-items-center justify-content-center mb-5">
+    <div class=" py-5 h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-dark text-white" style="border-radius: 1rem; width: 700px;">
+                <div class="card-body p-5 text-center">
+
+                    <div class="mb-md-5 mt-md-4 pb-5">
+
+                        <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+                        <p class="text-white-50 mb-5">Please fill in this form to register</p>
+
+                        <form method="post" action="">
+
+                            <div class="input-group justify-content-center">
+                                <div class="form-white mb-4 w-50 pr-1">
+                                    <label class="form-label" for="typeEmailX">First name</label>
+                                    <input value="<?=$_POST['fname'] ?? '' ?>" name="fname" type="text" id="typeEmailX"
+                                        class="form-control form-control-lg" placeholder="James" />
+                                    <div class="text-danger mt-1">
+                                        <?= $errors['fname'] ?? '' ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-white mb-4 w-50 pl-1">
+                                    <label class="form-label" for="typePasswordX">Last name</label>
+                                    <input value="<?=$_POST['lname'] ?? '' ?>" name="lname" type="text" id="typePasswordX"
+                                        class="form-control form-control-lg" placeholder="Newman" />
+                                    <div class="text-danger mt-1">
+                                        <?= $errors['lname'] ?? '' ?>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="form-outline form-white mb-4">
+                                    <label class="form-label" for="typePasswordX">Username</label>
+                                    <input value="<?=$_POST['uname'] ?? '' ?>" name="uname" type="text" id="typePasswordX" class="form-control form-control-lg"
+                                        placeholder="jimmyNew11" />
+                                    <div class="text-danger mt-1">
+                                        <?= $errors['uname'] ?? '' ?>
+                                    </div>
+                                </div>
+                                <div class="form-outline form-white mb-4">
+                                    <label class="form-label" for="typePasswordX">Email</label>
+                                    <input value="<?=$_POST['email'] ?? '' ?>" name="email" type="email" id="typePasswordX" class="form-control form-control-lg"
+                                        placeholder="jimmy.newman@gmail.com" />
+                                    <div class="text-danger mt-1">
+                                        <?= $errors['email'] ?? '' ?>
+                                    </div>
+                                </div>
+                                <div class="form-outline form-white mb-4">
+                                    <label class="form-label" for="typePasswordX">Phone number</label>
+                                    <input value="<?=$_POST['phone'] ?? '' ?>" name="phone" type="text" id="typePasswordX" class="form-control form-control-lg"
+                                        placeholder="+420123456789" />
+                                    <div class="text-danger mt-1">
+                                        <?= $errors['phone'] ?? '' ?>
+                                    </div>
+                                </div>
+                            <div class="input-group justify-content-center">
+                                <div class="form-white w-75 pr-1 mb-4">
+                                    <label class="form-label" for="typeEmailX">Address</label>
+                                    <input value="<?=$_POST['address'] ?? '' ?>" name="address" type="text" id="typeEmailX" class="form-control form-control-lg"
+                                        placeholder="Address 123/4" />
+                                    <div class="text-danger mt-1">
+                                        <?= $errors['address'] ?? '' ?>
+                                    </div>
+                                </div>
+                                <div class="form-white w-25 pl-1 mb-4">
+                                    <label class="form-label" for="typeEmailX">Postal code</label>
+                                    <input value="<?=$_POST['post-code'] ?? '' ?>" name="post-code" type="text" id="typeEmailX" class="form-control form-control-lg"
+                                        placeholder="123 45" />
+                                    <div class="text-danger mt-1">
+                                        <?= $errors['pcode'] ?? '' ?>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                                <div class="form-white mb-4">
+                                    <label class="form-label" for="typePasswordX">Country</label>
+                                    <input value="<?=$_POST['country'] ?? '' ?>" name="country" type="text" id="typePasswordX" class="form-control form-control-lg"
+                                        placeholder="Czech Republic" />
+                                    <div class="text-danger mt-1">
+                                        <?= $errors['country'] ?? '' ?>
+                                    </div>
+                                </div>
+                                <div class="form-white mb-4">
+                                    <label class="form-label" for="typeEmailX">Password</label>
+                                    <input value="<?=$_POST['passwd'] ?? '' ?>" name="passwd" type="password" id="typeEmailX" class="form-control form-control-lg"
+                                        placeholder="Password" />
+                                    <div class="text-danger mt-1">
+                                        <?= $errors['passwd'] ?? '' ?>
+                                    </div>
+                                </div>
+                            
+                                <div class="form-white mb-4">
+                                    <label class="form-label" for="typePasswordX">Password again</label>
+                                    <input value="<?=$_POST['passwd-2'] ?? '' ?>" name="passwd-2" type="password" id="typePasswordX" class="form-control form-control-lg"
+                                        placeholder="Repeat password" />
+                                    <div class="text-danger mt-1">
+                                        <?=$errors['passwd2'] ?? false ? 'password '.$errors['passwd2'] : '' ?>
+                                    </div>
+                                </div>
+
+                            <button name="register" value="1" class="btn btn-outline-light btn-lg px-5"
+                                type="submit">Register</button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <h6 class="mb-2">Already have an account? <a href="/shop/login"
+                                class="text-white-50 fw-bold">Login</a>
+                        </h6>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

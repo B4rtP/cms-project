@@ -1,0 +1,43 @@
+<style>
+    input {
+        width: 500px;
+    }
+    textarea {
+        width: 500px;
+    }
+    button {
+        width: 250px;
+        height: 35px;
+    }
+</style>
+
+
+<h1 class="text-center mt-3">Edit page <?= $page->id ?></h1>
+<div class="text-center m-5">
+    <form action="" method="post">
+        <h4>meta title</h4>
+        <div>
+            <input name="meta_title" type="text" value="<?= $page->meta_title ?>">
+        </div>
+        <h4 class="mt-4">main title</h4>
+        <div>
+            <input name="main_title" type="text" value="<?= $page->main_title ?>">
+        </div>
+        <h4 class="mt-4">main content</h4>
+        <div>
+            <textarea name="main_content" id="" cols="30" rows="10"><?= $page->main_content ?></textarea>
+        </div>
+        <h4 class="mt-4">title</h4>
+        <div>
+            <input name="title" type="text" value="<?= $page->title ?>">
+        </div>
+        <h4 class="mt-4">content</h4>
+        <div>
+            <textarea name="content" id="" cols="30" rows="10"><?= $page->content ?></textarea>
+        </div>
+        <button type="submit" name="submit" value="1" class="btn btn-primary mt-3">save changes</button>
+    </form>
+</div>
+
+
+

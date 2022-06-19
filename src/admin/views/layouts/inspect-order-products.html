@@ -1,0 +1,51 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 col-lg-12">
+            <div class="panel panel-primary">
+
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <div class="list-group-item font-weight-bold">
+                            <label class="col-1">ID</label>
+                            <label class="col-2">product name</label>
+                            <label class="col-2">product type</label>
+                            <label class="col-2">product price</label>
+                            <label class="col-2">product count</label>
+                            <label class="ml-3 col-2">product image</label>
+
+                        </div>
+
+                        <?php foreach($products as $product): ?>
+                        <li class="list-group-item">
+                            <label class="col-1">
+                                <?= $product->id ?>
+                            </label>
+
+                            <label class="col-2">
+                                <?= $product->name ?>
+                            </label>
+                            <label class="col-2">
+                                <?= $product->type ?>
+                            </label>
+                            <label class="col-2">
+                                $
+                                <?= $product->price ?>
+                            </label>
+                            <label class="col-2">
+                                <?= $productIdAndCount[$product->id] ?>x
+                            </label>
+                            <label class="col-2">
+                                <img class="img-fluid" src="/assets/images/shop/thumbnails/<?=$product->image_name?>"
+                                    alt="">
+                            </label>
+                        </li>
+                        <?php endforeach ?>
+                        <div>
+                            <a href="/admin/?section=orders&action=details&id=<?=$orderId?>" class="btn btn-dark mt-2">Back to order details</a>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

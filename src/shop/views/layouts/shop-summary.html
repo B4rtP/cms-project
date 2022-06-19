@@ -1,0 +1,217 @@
+<div class="card mt-5 shadow container-fluid" style="height: auto; width: 650px;">
+    <div class="text-center my-3">
+        <h2>Summary</h2>
+    </div>
+    <?php foreach($products as $product): ?>
+    <div class="row border-top list-group-item">
+        <div class="row main align-items-center">
+            <label class="col-3">
+                <img class="selfie" width="90" src="/assets/images/shop/thumbnails/<?=$product->image_name?>">
+            </label>
+            <div class="col-3">
+                <div class="row text-muted">
+                    <?= $product->type ?>
+                </div>
+                <div class="row mt-2"><b>
+                        <?= $product->name ?>
+                    </b></div>
+            </div>
+            <div class="col ml-5">
+                <data class="">
+                    <?php echo $quantity[$product->id] != 1 ?
+                    $quantity[$product->id].'x $ ' .$product->price : '$ '.$product->price ?>
+                </data>
+            </div>
+            <div class="mb-auto mr-2">
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-4">
+                <b>Total products: </b>
+            </div>
+            <div class="col-2">
+                <b class="">
+                    <?= $productCount ?>
+                </b>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-4">
+                <b>Total weight: </b>
+            </div>
+            <div class="col-4">
+                <b class="">
+                    <?= $totalWeight ?> kg
+                </b>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+
+    <h5 class="text-center mt-3">Shipping & Payment</h5>
+    
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-4">
+                <b>Shipping provider:</b>
+            </div>
+            <div class="col-2">
+                <b class="text-uppercase"><?= $shippingProvider->provider_name ?></b>
+            </div>
+            <div class="col">
+                <img width="50" src="/assets/logos/<?=$shippingProvider->logo_name?>" alt="">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <b>Payment method:</b>
+            </div>
+            <div class="col">
+                <b class="text-uppercase">
+                    <?= $paymentMethod ?>
+                </b>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <b>Subtotal:</b>
+            </div>
+            <div class="col">
+                <b class="text-uppercase">
+                    $ <?= $subtotal ?>
+                </b>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <b>Shipping price:</b>
+            </div>
+            <div class="col">
+                <b class="text-uppercase">
+                    $
+                    <?= round($shippingPrice, 3) ?>
+                </b>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <b>TOTAL:</b>
+            </div>
+            <div class="col">
+                <b class="text-uppercase">
+                    $ <?= round($total,3) ?>
+                </b>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+    
+</div>
+
+
+<div class="card my-5 shadow container-fluid" style="height: auto; width: 650px;">
+    <div class="text-center my-3">
+        <h2>Contact</h2>
+    </div>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-4">
+                <b>First name:</b>
+            </div>
+            <div class="col">
+                <b>
+                    <?= $customerInfo->fname ?? $customerInfo['fname'] ?>
+                </b>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <b>Last name:</b>
+            </div>
+            <div class="col">
+                <b>
+                    <?= $customerInfo->lname ?? $customerInfo['lname'] ?>
+                </b>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <b>Email:</b>
+            </div>
+            <div class="col">
+                <b>
+                    <?= $customerInfo->email ?? $customerInfo['email'] ?>
+                </b>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <b>Phone number:</b>
+            </div>
+            <div class="col">
+                <b>
+                    <?= $customerInfo->phone ?? $customerInfo['phone'] ?>
+                </b>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <b>Address:</b>
+            </div>
+            <div class="col">
+                <b>
+                    <?= $customerInfo->address ?? $customerInfo['address'] ?>
+                </b>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <b>Postal code:</b>
+            </div>
+            <div class="col">
+                <b>
+                    <?= $customerInfo->postal_code ?? $customerInfo['pcode'] ?>
+                </b>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <b>Country:</b>
+            </div>
+            <div class="col">
+                <b>
+                    <?= $customerInfo->country ?? $customerInfo['country'] ?>
+                </b>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid w-25 mb-5">
+    <form method="post" action="">
+        <button name="submit-order" value="1" type="submit" class="btn btn-primary btn-lg btn-block">Submit the order</button>
+    </form>
+</div>
+<div style="height: 130px ;"></div>
+</div>

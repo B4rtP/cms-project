@@ -1,0 +1,64 @@
+<header class="bg-dark py-5 shadow">
+    <div class="container mb-4 mt-3">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder"> Shopping cart</h1>
+        </div>
+    </div>
+</header>
+
+<div class="cart container mt-5">
+    <div class="title">
+        <div class="row">
+            <div class="col mb-2">
+                <h5><b><?php if($itemCount ?? false){ echo 'You have '.$itemCount.' in your cart'; }?></b></h5>
+            </div>
+        </div>
+    </div>
+    
+    <?php if($products ?? false): foreach($products as $product) : ?>
+    <div class="row border-top list-group-item">
+        <div class="row main align-items-center">
+            <label class="col-2">
+                <img class="selfie" width="90" src="/assets/images/shop/thumbnails/<?= $product->image_name ?>">
+            </label>
+            <div class="col-3">
+                <div class="row text-muted"><?= $product->type ?></div>
+                <div class="row mt-2"><b><?= $product->name ?></b></div>
+            </div>
+            <div class="col">
+                <form method="post" action="">
+                    <button name="minus" value="<?= $product->id ?>" class="btn btn-dark bi-dash py-0 px-1 mr-2"></button>
+                    <data class="font-weight-bold"><?= $quantity[$product->id] ?></data>
+                    <button name="plus" value="<?= $product->id ?>" class="btn btn-dark bi-plus py-0 px-1 ml-2"></button>
+                </form>
+            </div>
+            <div class="col ml-5">
+                <data class=""><?php echo $quantity[$product->id] == 1 ? '$ '.$product->price : 
+                    $quantity[$product->id].'x $ ' .$product->price ; ?>
+                </data>
+            </div>
+            <div class="mb-auto mr-2">
+                <form method="post" action="">
+                    <button name="delete" value="<?= $product->id ?>" class="btn btn-dark bi-x-lg px-2 py-1 float-right"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <?php endforeach;?>
+    <div class="mt-4">
+        <a class="bi-back btn btn-dark shadow" href="/shop"> Back to shopping</a>
+        <?php if($_SESSION['user'] ?? false): ?>
+        <a class="bi-cart-check-fill btn btn-primary float-right shadow" href="/shop/shipping_method"> Shipping and payment</a>
+        <?php else: ?>
+        <a class="bi-cart-check-fill btn btn-primary float-right shadow" href="/shop/shipping_form"> Shipping and payment</a>
+        <?php endif ?>
+        <data class="float-right mt-2 mr-5 font-weight-bold">$ <?= $subtotal ?></data>
+    </div>
+    <?php else: ?>
+    <div class="text-center">
+        <h5>Your shopping cart is empty</h5>
+        <a class="bi-back btn btn-outline-dark mt-3 shadow" href="/shop"><b> Back to shopping</b></a>
+    </div>
+    <?php endif; ?>
+</div>
+<div style="height: 400px;"></div>

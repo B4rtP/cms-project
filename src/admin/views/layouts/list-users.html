@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 col-lg-12">
+            <div class="panel panel-primary">
+
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <div class="list-group-item font-weight-bold">
+                            <label class="col-1">ID</label>
+                            <label class="col-2">username</label>
+                            <label class="col-2">first name</label>
+                            <label class="col-2">last name</label>
+                            <label class="col-2">email</label>
+                        </div>
+
+                        <?php foreach($users as $user): ?>
+                        <li class="list-group-item">
+                            <label class="col-1">
+                                <?= $user->id ?>
+                            </label>
+
+                            <label class="col-2">
+                                <?= $user->username ?>
+                            </label>
+                            <label class="col-2">
+                                <?= $user->fname ?>
+                            </label>
+                            <label class="col-2">
+                                <?= $user->lname ?>
+                            </label>
+                            <label class="col-2">
+                                <?= $user->email ?>
+                            </label>
+                            <div class="float-right">
+                                <a class="bi bi-zoom-in btn btn-primary" href="/admin?section=users&action=inspect&id=<?=$user->id?>"> Inspect</a>
+                            </div>
+                        </li>
+                        <?php endforeach ?>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

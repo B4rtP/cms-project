@@ -1,0 +1,76 @@
+<div class="my-5 container-fluid">
+    <div class="text-center mb-4">
+        <h5>Order ID <?= $order->order_id ?></h5>
+    </div>
+    <div class="container shadow px-0" style="width: 550px;">
+        <div>
+            <ul class="px-0">
+                <li class="list-group-item mx-auto">
+                    First name: <b class="float-right">
+                        <?= $order->fname ?>
+                    </b>
+                </li>
+                <li class="list-group-item mx-auto">
+                    Last name: <b class="float-right">
+                        <?= $order->lname ?>
+                    </b>
+                </li>
+                <li class="list-group-item mx-auto">
+                    Email: <b class="float-right">
+                        <?= $order->email ?>
+                    </b>
+                </li>
+                <li class="list-group-item mx-auto">
+                    Phone: <b class="float-right">
+                        <?= $order->phone ?>
+                    </b>
+                </li>
+                <li class="list-group-item mx-auto">
+                    Address: <b class="float-right">
+                        <?= $order->address ?>
+                    </b>
+                </li>
+                <li class="list-group-item mx-auto">
+                    Postal code: <b class="float-right">
+                        <?= $order->postal_code ?>
+                    </b>
+                </li>
+                <li class="list-group-item mx-auto">
+                    Country: <b class="float-right">
+                        <?= $order->country ?>
+                    </b>
+                </li>
+                <li class="list-group-item mx-auto">
+                    Shipping provider: <b class="float-right text-uppercase">
+                        <?= $shipProvider->provider_name ?>
+                    </b>
+                </li>
+                <li class="list-group-item mx-auto">
+                    Payment method: <b class="float-right text-uppercase">
+                        <?= $order->payment_method ?>
+                    </b>
+                </li>
+                <li class="list-group-item mx-auto">
+                    Products: <b class="float-right">
+                        <a class="ml-3 bi bi-zoom-in btn btn-primary py-0 px-1"
+                        href="/admin?section=orders&action=inspectOrderProducts&id=<?=$order->order_id?>"></a>
+                        <?= $orderProducts ?>
+                    </b>
+                </li>
+                <li class="list-group-item mx-auto">
+                    Total price: <b class="float-right text-uppercase">
+                        <?= round($order->total_price,3) ?>
+                    </b>
+                </li>
+                <li class="list-group-item mx-auto">
+                    Created at: <b class="float-right text-uppercase">
+                        <?= $order->created ?>
+                    </b>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="text-center my-3">
+        <a href="/admin/?section=orders" class="btn btn-dark">Back to list of orders</a>
+    </div>
+</div>

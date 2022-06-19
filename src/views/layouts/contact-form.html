@@ -1,0 +1,29 @@
+<div class="text-center">
+    <h1 class="mt-5">
+        <?=
+            $page->main_title
+        ?>
+    </h1>
+    <p class="mt-3">
+        <?=
+            $page->main_content
+        ?>
+    </p>
+</div>
+<form class="w-50 container mt-5" action="/contact_us" method="post">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Title of your message</label>
+        <input type="text" class="form-control" name="title" placeholder="Enter title" value="<?= $_POST['title'] ?? '' ?>" >
+        <div class="text-danger mt-1">
+            <?= $errors['title']?? ''?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="mt-3">Content of your message</label>
+        <textarea class="form-control" name="content" id="" cols="112" rows="9" placeholder="Enter content"><?= $_POST['content'] ?? '' ?></textarea>
+        <div class="text-danger">
+            <?= $errors['content'] ?? ''?>
+        </div>
+    </div>
+    <button type="submit" name="submit-contact" value="1" class="bi-check-lg btn btn-primary"> Submit</button>
+</form>

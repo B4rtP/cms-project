@@ -1,0 +1,17 @@
+{
+    "name": "asus/cms-project",
+    "autoload": {
+        "psr-4": {
+            "Cms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bartoloměj Pouzar",
+            "email": "pouzar.bart@gmail.com"
+        }
+    ],
+    "require": {
+        "imagine/imagine": "^1.3"
+    }
+}
